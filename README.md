@@ -9,6 +9,9 @@ You are given an n x n matrix isConnected where isConnected[i][j] = 1 if the ith
 
 Return the total number of provinces.
 
+![Number of provinces](number-of-provinces.JPG?raw=true "Number of provinces")
+
+Implementation 1 : DFS
 
 ```java
 class Solution {
@@ -35,3 +38,4 @@ class Solution {
 }
 
 ```
+
