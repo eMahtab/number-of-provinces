@@ -11,7 +11,10 @@ Return the total number of provinces.
 
 ![Number of provinces](number-of-provinces.JPG?raw=true "Number of provinces")
 
-Implementation 1 : DFS
+## Approach : 
+In graph components which are connected can be reached starting from any single node of the connected group. Thus, to find the number of connected components, we start from every node which isn't visited right now and apply DFS starting with it. We increment the count of connected components for every new starting node.
+
+## Implementation 1 : DFS
 
 ```java
 class Solution {
