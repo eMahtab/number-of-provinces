@@ -43,6 +43,7 @@ class Solution {
 ```
 
 ### Caution : StackOverflowError
-![StackoverflowError](graph.JPG?raw=true "StackoverflowError")
+Note that we need the `visited` array to mark the nodes/vertices that we have already visited otherwise we will run into StackOverflowError
+![StackOverflowError](graph.JPG?raw=true "StackOverflowError")
 
 
