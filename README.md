@@ -45,6 +45,7 @@ class Solution {
 ### Caution : StackOverflowError
 Note that we need the `visited` array to mark the nodes/vertices that we have already visited otherwise we will run into StackOverflowError.
 Even though its naive but lets say this loud, one vertex can not be part of two different graph components.
+
 ![StackOverflowError](graph.JPG?raw=true "StackOverflowError")
 
 
