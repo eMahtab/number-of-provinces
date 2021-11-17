@@ -18,23 +18,25 @@ In graph components which are connected can be reached starting from any single 
 
 ```java
 class Solution {
-    public int findCircleNum(int[][] graph) {
-        int[] visited = new int[graph.length];
-        int provinces = 0;
-        for (int i = 0; i < graph.length; i++) {
-            if (visited[i] == 0) {
-                provinces++;
-                dfs(graph, visited, i);
+    public int findCircleNum(int[][] isConnected) {
+        int n = isConnected.length;
+        boolean[] visited = new boolean[n];
+        int components = 0;
+        for(int vertex = 0; vertex < n; vertex++) {
+            if(!visited[vertex]) {
+                visited[vertex] = true;
+                components++;
+                visitNeighbors(vertex, isConnected, visited);
             }
         }
-        return provinces;
+        return components;
     }
     
-    private void dfs(int[][] graph, int[] visited, int i) {
-        for (int j = 0; j < graph.length; j++) {
-            if (graph[i][j] == 1 && visited[j] == 0) {
-                visited[j] = 1;
-                dfs(graph, visited, j);
+    private void visitNeighbors(int vertex, int[][] isConnected, boolean[] visited) {
+        for(int v = 0; v < isConnected.length; v++) {
+            if(isConnected[vertex][v] == 1 && !visited[v]) {
+                visited[v] = true;
+                visitNeighbors(v, isConnected, visited);
             }
         }
     }
