@@ -50,4 +50,37 @@ Even though its naive but lets say this loud, one vertex can not be part of two 
 
 ![StackOverflowError](graph.JPG?raw=true "StackOverflowError")
 
+## Implementation 2 : BFS
+```java
+class Solution {
+    public int findCircleNum(int[][] isConnected) {
+        if(isConnected == null || isConnected.length == 0)
+          return 0;
 
+        int province = 0;
+        int totalNodes = isConnected.length;
+        Set<Integer> visited = new HashSet<>();
+        Queue<Integer> queue = new ArrayDeque<>();
+        for(int vertex = 0; vertex < totalNodes; vertex++){
+            if(!visited.contains(vertex)) {
+                province++;
+                queue.add(vertex);
+                while(!queue.isEmpty()) {
+                    int u = queue.remove();
+                    visited.add(u);
+                    for(int v = 0; v < totalNodes; v++) {
+                        if( u == v || visited.contains(v))
+                           continue;
+                        if(isConnected[u][v] == 1) {
+                            queue.add(v);
+                        }
+                    }
+                }
+            }
+        }
+
+        return province;  
+    }
+}
+
+```
