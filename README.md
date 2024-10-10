@@ -67,20 +67,18 @@ class Solution {
                 queue.add(vertex);
                 while(!queue.isEmpty()) {
                     int u = queue.remove();
+                    if(visited.contains(u)) continue;
                     visited.add(u);
                     for(int v = 0; v < totalNodes; v++) {
-                        if( u == v || visited.contains(v))
-                           continue;
-                        if(isConnected[u][v] == 1) {
-                            queue.add(v);
+                        if(v != u && isConnected[u][v] == 1) {
+                            if(!visited.contains(v))
+                              queue.add(v);
                         }
                     }
                 }
             }
         }
-
         return province;  
     }
 }
-
 ```
