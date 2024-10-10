@@ -82,3 +82,5 @@ class Solution {
     }
 }
 ```
+
+Time Complexity : O(N^2) for both the DFS and BFS implementation.
